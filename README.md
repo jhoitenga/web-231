@@ -2,5 +2,5 @@
 For class Web 231
 
 ## Contributors
-*Professor Kumar
-*Jennifer Hoitenga
+..*Professor Kumar
+..*Jennifer Hoitenga
