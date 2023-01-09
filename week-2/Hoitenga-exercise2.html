@@ -16,19 +16,26 @@
     <body>
         <div id="container">
         <h1 class="app-header">Exercise 2.2 - Hello JavaScript</h1>
-        
-        <p id="txtMyWorld">You are now in Hoitenga's world!</p>
-
+    
         <!--Button-->
-        <button id="btnMyCourse" >What course am I taking?</button>
-        
+        <button id="btnMyCourse">What course am I taking?</button>
+
+        <p id="txtMyWorld"></p>
+                        
         <!--Anchor-->
-        <p><a href="https://jhoitenga.github.io/web-231/" class="return-home">Return</a></p>
-        
+        <a href="../index.html" class="return-home">Return</a>
+                        
         <script>
-        function myFunction() {
-            alert("WEB 231 – Enterprise JavaScript I");
-        }
+            //Bind text to p tag
+            document.getElementById("txtMyWorld").innerHTML = "You are now in Hoitenga's world!";
+        </script>
+
+        <script>
+            //Wait for click
+            document.getElementById("btnMyCourse").onclick = function() {
+                //Display answer
+                alert("WEB 231 – Enterprise JavaScript I.");
+            };
         </script>
 
         </div>
