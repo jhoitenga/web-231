@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="Hoitenga-payroll.css">
+    <link rel="stylesheet" href="../site.css">
+    <link rel="stylesheet" href="../global.css">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+
+<body>
+    <div id="container">
+            <div class="payroll-header"><h1>Payroll System</h1></div>
+
+    <!--Employee 1-->
+    <h3>Employee record 1</h3>
+    <ul>
+        <li id="txtFirstName1"></li>
+        <li id="txtLastName1"></li>
+        <li id="txtAddress1"></li>
+        <li id="txtHireDate1"></li>
+        <li id="txtPayRate1"></li>
+    </ul>
+
+    <!--Employee 2-->
+    <h3>Employee record 2</h3>
+    <ul>
+        <li id="txtFirstName2"></li>
+        <li id="txtLastName2"></li>
+        <li id="txtAddress2"></li>
+        <li id="txtHireDate2"></li>
+        <li id="txtPayRate2"></li>
+    </ul>
+
+    <!--Employee 3-->
+    <h3>Employee record 3</h3>
+    <ul>
+        <li id="txtFirstName3"></li>
+        <li id="txtLastName3"></li>
+        <li id="txtAddress3"></li>
+        <li id="txtHireDate3"></li>
+        <li id="txtPayRate3"></li>
+    </ul>
+
+    <script>
+        // Employee 1
+        let txtFirstName1 = "John";
+        let txtLastName1 = "Candy"
+        let txtAddress1 = "217 Woodville Ave"
+        let txtHireDate1 = "10/03/2022"
+        // Convert Hire Date to Local Date String
+        let hireDate1 = new Date();
+        let txtHireDateConvert1 = hireDate1.toLocaleDateString("en-US");
+        let txtPayRate1 = 48.55;
+        // Convert PayRate to 1 decimal point
+        let payRate1 = txtPayRate1.toFixed(1);
+
+        // Employee 2
+        let txtFirstName2 = "Dolores"
+        let txtLastName2 = "O'Riordan"
+        let txtAddress2 = "16 Thormanby Woods"
+        let txtHireDate2 = "09/05/2022"
+        // Convert Hire Date to Local Date String
+        let hireDate2 = new Date();
+        let txtHireDateConvert2 = hireDate2.toLocaleDateString("en-US");
+        let txtPayRate2 = 52.49;
+        // Convert PayRate to 1 decimal point
+        let payRate2 = txtPayRate2.toFixed(1);
+
+        // Employee 3
+        let txtFirstName3 = "Chris"
+        let txtLastName3 = "Farley"
+        let txtAddress3 = "175 E Deleware Pl, Apt #6002"
+        let txtHireDate3 = "01/17/2022"
+        // Convert Hire Date to Local Date String
+        let hireDate3 = new Date();
+        let txtHireDateConvert3 = hireDate3.toLocaleDateString("en-US");
+        let txtPayRate3 = 45.15;
+        // Convert PayRate to 1 decimal point
+        let payRate3 = txtPayRate3.toFixed(1);
+    </script>
+
+
+<script>
+// Binding the variables
+document.getElementById("txtFirstName1").innerHTML = txtFirstName1; 
+document.getElementById("txtLastName1").innerHTML = txtLastName1;
+document.getElementById("txtAddress1").innerHTML = txtAddress1;
+document.getElementById("txtHireDate1").innerHTML = txtHireDateConvert1;
+document.getElementById("txtPayRate1").innerHTML = payRate1;
+document.getElementById("txtFirstName2").innerHTML = txtFirstName2; 
+document.getElementById("txtLastName2").innerHTML = txtLastName2;
+document.getElementById("txtAddress2").innerHTML = txtAddress2;
+document.getElementById("txtHireDate2").innerHTML = txtHireDateConvert2;
+document.getElementById("txtPayRate2").innerHTML = payRate2; 
+document.getElementById("txtFirstName3").innerHTML = txtFirstName3; 
+document.getElementById("txtLastName3").innerHTML = txtLastName3;
+document.getElementById("txtAddress3").innerHTML = txtAddress2;
+document.getElementById("txtHireDate3").innerHTML = txtHireDateConvert3;
+document.getElementById("txtPayRate3").innerHTML = payRate3; 
+</script>
+
+ <!--Anchor-->
+<a href="../index.html" class="return-home ">Return</a>
+
+</div>
+</body>
+</html>
