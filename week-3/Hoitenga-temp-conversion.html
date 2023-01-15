@@ -7,7 +7,7 @@
 ; Description: Creation of a temperature conversion app using JavaScript
 ; Sources Used: 
 ; Web 231 HTML, CSS, and JavaScript Requirements Word Document
-; W3 Schools onClick Tutorial: https://www.w3schools.com/JSREF/tryit.asp?filename=tryjsref_onclick_dom
+; W3 Schools onClick Tutorial: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onclick_dom
 ;=====================================
 -->
 
@@ -21,6 +21,7 @@
 
     <!--Stylesheets-->
     <link rel="stylesheet" href="Hoitenga-temp-conversion.css">
+   
     <link rel="stylesheet" href="../global.css">
     
     <!--Google Fonts-->
@@ -33,37 +34,37 @@
     <div id="container">
         <h1 class="app-header">Welcome to the Temperature Conversion App!</h1>
 
-        <div class="card">
-            <div class="card-title">
-                Fahrenheit to Celsius Converter
-            </div>
-            <div class="card-content">
-                <div class="form">
-                    <div class="form-field">
-                        <label>Fahrenheit value:</label>
-                        <input type="text" id="txtFahrenheit" name="txtFahrenheit" class="input">
-                    </div>
-                    <div class="form-field">
+        <div id="form-example">
+            <div class="card">
+                <div class="card-title">Fahrenheit to Celsius Converter</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="txtFahrenheit">Fahrenheit value:</label>
+                            <input type="text" id="txtFahrenheit" name="txtFahrenheit" class="input">
+                        </div>
+                        <div class="form-field">
                         <button type="submit" class="btn btn-primary full-width" id="btnConvertTemp">Convert Temperature</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <div class="card">
-            <div class="card-title">
-                Conversion Results
-            </div>
-            <div class="card-content">
-                <div class="form">
-                    <div class="form-field">
-                        <p class="results" id="txtResults"></p>
+        <div id="form-example">
+            <div class="card">
+                <div class="card-title">Conversion Results</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <p class="results" id="txtResults"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <br>
 
 <!--Anchor-->
 <a href="../index.html" class="return-home">Return</a>
