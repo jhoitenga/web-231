@@ -1,0 +1,94 @@
+<!-- 
+======================================
+; Title: Assignment 3.2 - Temperature Conversion App
+; Author: Professor Kumar
+; Date: 15 January 2024
+; Modified By: Jennifer Hoitenga
+; Description: Creation of a temperature conversion app using JavaScript
+; Sources Used: 
+; Web 231 HTML, CSS, and JavaScript Requirements Word Document
+; W3 Schools onClick Tutorial: https://www.w3schools.com/JSREF/tryit.asp?filename=tryjsref_onclick_dom
+;=====================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="Hoitenga-temp-conversion.css">
+    <link rel="stylesheet" href="../global.css">
+    
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="app-header">Welcome to the Temperature Conversion App!</h1>
+
+        <div class="card">
+            <div class="card-title">
+                Fahrenheit to Celsius Converter
+            </div>
+            <div class="card-content">
+                <div class="form">
+                    <div class="form-field">
+                        <label>Fahrenheit value:</label>
+                        <input type="text" id="txtFahrenheit" name="txtFahrenheit" class="input">
+                    </div>
+                    <div class="form-field">
+                        <button type="submit" class="btn btn-primary full-width" id="btnConvertTemp">Convert Temperature</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-title">
+                Conversion Results
+            </div>
+            <div class="card-content">
+                <div class="form">
+                    <div class="form-field">
+                        <p id="txtResults"></p>
+                        <p id="txtFirstName1"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!--Anchor-->
+<a href="../index.html" class="return-home">Return</a>
+
+<!--JavaScript-->
+<script>
+    // Wait for click
+    document.getElementById("btnConvertTemp").onclick = function() {myFunction()};
+
+function myFunction() {
+    // Capture the value and assign it to a variable
+    let fahrenheit = document.getElementById('txtFahrenheit').value;
+    // Display variable in the Fahrenheit value card
+    document.getElementById("txtResults").innerHTML = fahrenheit;
+
+    //Need to work on the math part
+    //((parseFloat(fahrenheit)-32) / 1.8).toFixed(1)
+};
+    
+</script>
+
+
+
+</div>
+    
+</body>
+</html>
