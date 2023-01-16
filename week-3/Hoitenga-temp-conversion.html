@@ -63,8 +63,6 @@
             </div>
         </div>
 
-        <br>
-
 <!--Anchor-->
 <a href="../index.html" class="return-home">Return</a>
 
@@ -72,20 +70,18 @@
 <script>
     // Wait for click
     document.getElementById("btnConvertTemp").onclick = function() {myFunction()};
+    function myFunction() {
 
-function myFunction() {
     // Capture the value and assign it to a variable
     let fahrenheit = document.getElementById('txtFahrenheit').value;
-    // Display variable in the Fahrenheit value card
-    document.getElementById("txtResults").innerHTML = fahrenheit;
 
-    //Need to work on the math part
-    //((parseFloat(fahrenheit)-32) / 1.8).toFixed(1)
-};
+    // Convert Fahrenheit to Celsius
+    let txtCelsius = ((parseFloat(fahrenheit)-32) / 1.8).toFixed(1)
     
+    // Display variable in the Conversion Results card
+    document.getElementById("txtResults").innerHTML = txtCelsius;
+    }
 </script>
-
-
 
 </div>
     
