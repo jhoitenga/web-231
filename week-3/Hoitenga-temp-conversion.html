@@ -56,7 +56,7 @@
                 <div class="card-content">
                     <div class="form">
                         <div class="form-field">
-                            <div class="results" id="txtResults"></div>
+                            <div id="txtResults" class="results"></div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
     let fahrenheit = document.getElementById('txtFahrenheit').value;
 
     // Convert Fahrenheit to Celsius
-    let txtCelsius = ((parseFloat(fahrenheit)-32) / 1.8).toFixed(1)
+    let txtCelsius = ((parseFloat(fahrenheit)-32) / 1.8).toFixed(2)
     
     // Display variable in the Conversion Results card
     document.getElementById("txtResults").innerHTML = txtCelsius;
