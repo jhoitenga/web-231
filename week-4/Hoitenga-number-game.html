@@ -74,9 +74,8 @@
 
 <script>
 
-    // Wait for click
-    document.getElementById("btnSubmit").onclick = function() {myFunction()};
-    function myFunction() {
+    // Wait for click of Submit button
+    document.getElementById("btnSubmit").onclick = function() {
 
     // Capture the value and assign it to a variable
     let myNumber = document.getElementById('txtMyNumber').value;
@@ -87,12 +86,12 @@
     }
 
     // Check to see if myNumber is less than random number
-    if(myNumber < rnd) {
+    else if(myNumber < rnd) {
     document.getElementById("txtResults").innerHTML = "The number is greater than " + myNumber;
     }
 
     // Check to see if myNumber matches random number
-    if(myNumber == rnd) {
+    else if(myNumber == rnd) {
     document.getElementById("txtResults").innerHTML = "Congratulations! You picked the correct number!";
     }
 
