@@ -2,7 +2,7 @@
 ======================================
 ; Title: Assignment 4.2 - Number Guessing Game
 ; Author: Professor Kumar
-; Date: 23 January 2023
+; Date: 26 January 2023
 ; Modified By: Jennifer Hoitenga
 ; Description: Creation of a number guessing game using JavaScript
 ; Sources Used: 
@@ -53,52 +53,48 @@
             <div class="card">
                 <div class="card-title">Results</div>
                 <div class="card-content">
-                    <div class="form">
-                        <div class="form-field">
-                            <div id="txtResults" class="results"></div>
-                        </div>
-                    </div>
+                    <div id="txtResults" class="results"></div>
                 </div>
             </div>
         </div>
-
-<!--Anchor-->
-<a href="../index.html" class="return-home">Return</a>
-
-<!--JavaScript-->
-<script>
-    // On page load, generate a random number between 1 and 10
-    const rnd = Math.floor((Math.random() * 10) + 1);
-    //console.log(rnd);
-</script>
-
-<script>
-
-    // Wait for click of Submit button
-    document.getElementById("btnSubmit").onclick = function() {
-
-    // Capture the value and assign it to a variable
-    let myNumber = document.getElementById('txtMyNumber').value;
-
-    // Check to see if myNumber is greater than random number
-    if(myNumber > rnd) {
-    document.getElementById("txtResults").innerHTML = "The number is less than " + myNumber;
-    }
-
-    // Check to see if myNumber is less than random number
-    else if(myNumber < rnd) {
-    document.getElementById("txtResults").innerHTML = "The number is greater than " + myNumber;
-    }
-
-    // Check to see if myNumber matches random number
-    else if(myNumber == rnd) {
-    document.getElementById("txtResults").innerHTML = "Congratulations! You picked the correct number!";
-    }
-
-    }
-</script>
+        
+        <div>
+            <!--Anchor-->
+            <a href="../index.html" class="return-home">Return</a>
+        </div>
+        
+        <!--JavaScript-->
+        <script>
+        // On page load, generate a random number between 1 and 10
+        const rnd = Math.floor((Math.random() * 10) + 1);
+        //console.log(rnd);
+        </script>
+        
+        <script>
+        // Wait for click of Submit button
+        document.getElementById("btnSubmit").onclick = function() {
+            
+            // Capture the value and assign it to a variable
+            let myNumber = document.getElementById('txtMyNumber').value;
+            
+            // Check to see if myNumber is greater than random number
+            if(myNumber > rnd) {
+                document.getElementById("txtResults").innerHTML = "The number is less than " + myNumber;
+            }
+            
+            // Check to see if myNumber is less than random number
+            else if(myNumber < rnd) {
+                document.getElementById("txtResults").innerHTML = "The number is greater than " + myNumber;
+            }
+            
+            // Check to see if myNumber matches random number
+            else if(myNumber == rnd) {
+                document.getElementById("txtResults").innerHTML = "Congratulations! You picked the correct number!";
+            }
+        }
+        </script>
 
 </div>
-    
+   
 </body>
 </html>
