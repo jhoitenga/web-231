@@ -1,0 +1,239 @@
+<!-- 
+======================================
+; Title: Assignment 6.2 - In-N-Out Books
+; Author: Professor Kumar
+; Date: February 8th, 2023
+; Modified By: Jennifer Hoitenga
+; Description: Experimenting with JavaScript object literals by creating an application called In-N-Out-Books. 
+; Sources Used: 
+; Web 231 HTML, CSS, and JavaScript Requirements Word Document
+; W3Schools Toggle Hide and Show: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+; W3Schools JSON Object Literals: https://www.w3schools.com/js/js_json_objects.asp
+; W3Schools For Loop: https://www.w3schools.com/js/js_loop_for.asp
+; W3Schools Arrays: https://www.w3schools.com/js/js_arrays.asp
+; W3Schools JSON: https://www.w3schools.com/js/js_json_objects.asp
+;=====================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="Hoitenga-in-n-out-books.css">
+    <link rel="stylesheet" type="text/css" href="../global.css">
+    
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="app-header">Welcome to In-N-Out-Books!</h1>
+
+        <div id="form-example">
+            <div class="card">
+                <div class="card-title">My Favorites</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="favoriteList">Choose a listing:</label>
+                            <select id="favoriteList" name="favoriteList" class="drop-down-menu">
+                            <option value="select">--Select--</option>
+                            <option value="books">Top 3 Favorite Books</option>
+                            <option value="authors">Top 3 Favorite Authors</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                        <button type="submit" class="btn btn-primary full-width" id="btnDisplayListing">Display Listing</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <br>
+                <!--Anchor-->
+                <a href="../index.html" class="return-home">Return</a>
+            </div>
+        </div>
+        
+        <div id="form-results-example">
+            <div class="card">
+
+                <!--Building Books Table-->
+                <div class="card-title" id="favorite-books">
+                    <div class="favorite-books">Top 3 Favorite Books</div>
+                    <div class="card-content">
+                        <div id="txtResults" class="results">
+                            <table id="favorite-book-table">
+                            <tr>
+                                <th>ISBN</th>
+                                <th>Title</th>
+                                <th>Pages</th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td id="txtLionWitchISBN"></td>
+                                    <td id="txtLionWitchTitle"></td>
+                                    <td id="txtLionWitchPages"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtGrendelISBN"></td>
+                                    <td id="txtGrendelTitle"></td>
+                                    <td id="txtGrendelPages"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtDraculaISBN"></td>
+                                    <td id="txtDraculaTitle"></td>
+                                    <td id="txtDraculaPages"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div></div>
+     
+            <div class="card">
+                
+                <!--Building Authors Table-->
+                <div class="card-title" id="favorite-authors">
+                    <div class="favorite-authors">Top 3 Favorite Authors</div>
+                    <table id="favorite-author-table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Genre</th>
+                    </tr>
+                        <tbody>
+                            <tr>
+                                <td id="txtStokerName"></td>
+                                <td id="txtHorrorGothicGenre"></td>
+                            </tr>
+                            <tr>
+                                <td id="txtAtwoodName"></td>
+                                <td id="txtDystopianFictionGenre"></td>
+                            </tr>
+                            <tr>
+                                <td id="txtMartinName"></td>
+                                <td id="txtFantasyGenre"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+            
+        
+                
+                <!--JavaScript-->
+                <script>
+                
+                // Creating book 1 variable
+                let book1 = 
+                { 
+                    isbn : "9780064404990",
+                    title : "The Lion, the Witch and the Wardrobe",
+                    pages : "208",
+                };
+                
+                // Creating book 2 variable
+                let book2 =
+                { 
+                    isbn : "0679723110",
+                    title : "Grendel",
+                    pages : "192",
+                };
+                
+                // Creating book 3 variable
+                let book3 =
+                { 
+                    isbn  : "1954839383",
+                    title : "Dracula",
+                    pages : "409",
+                };
+                
+                // Creating author 1 variable
+                let author1 = 
+                { 
+                    name : "Bram Stoker",
+                    genre : "Horror/Gothic Fiction",
+                };
+                
+                // Creating author 2 variable
+                let author2 = 
+                { 
+                    name : "Margaret Atwood",
+                    genre : "Dystopian Fiction",
+                };
+                
+                // Creating author 3 variable
+                let author3 = 
+                { 
+                    name : "George R. R. Martin",
+                    genre : "Fantasy/Horror/Science Fiction",
+                };
+                
+                // Creating books and authors variables
+                let books = document.getElementById("favorite-books");
+                let authors = document.getElementById("favorite-authors");
+
+                // Setting display to none
+                document.getElementById("favorite-books").style.display = "none";
+                document.getElementById("favorite-authors").style.display = "none";
+                
+
+                // Wait for click of Display Listing button
+                document.getElementById("btnDisplayListing").addEventListener("click", myFavoritesList);
+                
+                function myFavoritesList() {
+                    let choice = document.getElementById("favoriteList").value;
+                    console.log(choice);
+                    
+                    // If books is selected
+                    if (choice == "books") {
+                        authors.style.display = "none";
+                        books.style.display = "block";
+                        
+                    // If authors is selected
+                    } else if (choice == "authors") {
+                        books.style.display = "none";
+                        authors.style.display = "block";
+                        
+                    // If anything else was selected
+                    } else {
+                        books.style.display = "none";
+                        authors.style.display = "none";
+                    }
+                    
+                    // Build table for books
+                    document.getElementById("txtLionWitchISBN").innerHTML = book1.isbn;
+                    document.getElementById("txtLionWitchTitle").innerHTML = book1.title;
+                    document.getElementById("txtLionWitchPages").innerHTML = book1.pages;
+                    document.getElementById("txtGrendelISBN").innerHTML = book2.isbn;
+                    document.getElementById("txtGrendelTitle").innerHTML = book2.title;
+                    document.getElementById("txtGrendelPages").innerHTML = book2.pages;
+                    document.getElementById("txtDraculaISBN").innerHTML = book3.isbn;
+                    document.getElementById("txtDraculaTitle").innerHTML = book3.title;
+                    document.getElementById("txtDraculaPages").innerHTML = book3.pages;
+                    
+                    // Build table for authors
+                    document.getElementById("txtStokerName").innerHTML = author1.name;
+                    document.getElementById("txtHorrorGothicGenre").innerHTML = author1.genre;
+                    document.getElementById("txtAtwoodName").innerHTML = author2.name;
+                    document.getElementById("txtDystopianFictionGenre").innerHTML = author2.genre;
+                    document.getElementById("txtMartinName").innerHTML = author3.name;
+                    document.getElementById("txtFantasyGenre").innerHTML = author3.genre;
+                }
+
+        </script>
+
+    </div>
+
+</body>
+</html>
