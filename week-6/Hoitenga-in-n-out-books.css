@@ -18,6 +18,10 @@
 
 }
 
+#favorite-authors {
+    padding-bottom: 15px;
+}
+
 #favoritesCard {
     width: 600px;
     margin: 3% auto 0;
