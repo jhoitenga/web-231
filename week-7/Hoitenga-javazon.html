@@ -1,0 +1,496 @@
+<!-- 
+======================================
+; Title: Assignment 7.2 - Javazon
+; Author: Professor Kumar
+; Date: February 14th, 2023
+; Modified By: Jennifer Hoitenga
+; Description: Experimenting with JavaScript classes by creating an application called Javazon. 
+; Sources Used: 
+; Web 231 HTML, CSS, and JavaScript Requirements Word Document
+; W3Schools JavaScript Classes: https://www.w3schools.com/js/js_classes.asp
+;=====================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="Hoitenga-javazon.css">
+    <link rel="stylesheet" type="text/css" href="../global.css">
+    
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="app-header">Welcome to the Javazon App!</h1>
+
+        <div id="form-example">
+            <div class="card">
+                <div class="card-title">Javazon Selection Form</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="favoriteList">Choose a listing:</label>
+                            <select id="favoriteList" name="favoriteList" class="drop-down-menu">
+                            <option value="select">--Select--</option>
+                            <option value="products">Products</option>
+                            <option value="services">Services</option>
+                            <option value="employees">Employees</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                        <button type="submit" class="btn btn-primary full-width" id="btnDisplayListing">Display Listing</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <br>
+                <!--Anchor-->
+                <a href="../index.html" class="return-home">Return</a>
+            </div>
+        </div>
+        
+        <div id="form-results-example">
+            <div class="card">
+
+                <!--Building Products Table-->
+                <div class="card-title" id="favorite-products">
+                    <div class="favorite-products">Javazon Products</div>
+                    <div class="card-content">
+                        <div id="txtResults" class="results">
+                            <table id="favorite-products-table">
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total Value</th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td id="txtHtmlCssId"></td>
+                                    <td id="txtHtmlCssDescription"></td>
+                                    <td id="txtHtmlCssPrice"></td>
+                                    <td id="txtHtmlCssQuantity"></td>
+                                    <td id="txtHtmlCssTotalValue"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtJavaScriptId"></td>
+                                    <td id="txtJavaScriptDescription"></td>
+                                    <td id="txtJavaScriptPrice"></td>
+                                    <td id="txtJavaScriptQuantity"></td>
+                                    <td id="txtJavaScriptTotalValue"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtLearningId"></td>
+                                    <td id="txtLearningDescription"></td>
+                                    <td id="txtLearningPrice"></td>
+                                    <td id="txtLearningQuantity"></td>
+                                    <td id="txtLearningTotalValue"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtExpressId"></td>
+                                    <td id="txtExpressDescription"></td>
+                                    <td id="txtExpressPrice"></td>
+                                    <td id="txtExpressQuantity"></td>
+                                    <td id="txtExpressTotalValue"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtMongoId"></td>
+                                    <td id="txtMongoDescription"></td>
+                                    <td id="txtMongoPrice"></td>
+                                    <td id="txtMongoQuantity"></td>
+                                    <td id="txtMongoTotalValue"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div></div>
+     
+            <div class="card">
+                
+                <!--Building Services Table-->
+                <div class="card-title" id="favorite-services">
+                    <div class="favorite-services">Javazon Services</div>
+                    <table id="favorite-services-table">
+                    <tr>
+                        <th>Service ID</th>
+                        <th>Description</th>
+                        <th>Hourly Rate</th>
+                        <th>Minimum Billable Hours</th>
+                    </tr>
+                        <tbody>
+                            <tr>
+                                <td id="txtWebsiteDesignId"></td>
+                                <td id="txtWebsiteDesignDescription"></td>
+                                <td id="txtWebsiteDesignHourlyRate"></td>
+                                <td id="txtWebsiteDesignMinBillableHours"></td>
+                            </tr>
+                            <tr>
+                                <td id="txtDevOpsConsultId"></td>
+                                <td id="txtDevOpsConsultDescription"></td>
+                                <td id="txtDevOpsConsultHourlyRate"></td>
+                                <td id="txtDevOpsConsultMinBillableHours"></td>
+                            </tr>
+                            <tr>
+                                <td id="txtDatabaseDesignId"></td>
+                                <td id="txtDatabaseDesignDescription"></td>
+                                <td id="txtDatabaseDesignHourlyRate"></td>
+                                <td id="txtDatabaseDesignMinBillableHours"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                
+                    <!--Building Employees Table-->
+                    <div class="card-title" id="favorite-employees">
+                        <div class="favorite-employees">Javazon Employees</div>
+                        <table id="favorite-employees-table">
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Salary</th>
+                        </tr>
+                            <tbody>
+                                <tr>
+                                    <td id="txtBeethovenId"></td>
+                                    <td id="txtBeethovenLastName"></td>
+                                    <td id="txtBeethovenFirstName"></td>
+                                    <td id="txtBeethovenSalary"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtBeethovenId"></td>
+                                    <td id="txtBeethovenLastName"></td>
+                                    <td id="txtBeethovenFirstName"></td>
+                                    <td id="txtBeethovenSalary"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtBachId"></td>
+                                    <td id="txtBachLastName"></td>
+                                    <td id="txtBachFirstName"></td>
+                                    <td id="txtBachSalary"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtMozartId"></td>
+                                    <td id="txtMozartLastName"></td>
+                                    <td id="txtMozartFirstName"></td>
+                                    <td id="txtMozartSalary"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtBrahmsId"></td>
+                                    <td id="txtBrahmsLastName"></td>
+                                    <td id="txtBrahmsFirstName"></td>
+                                    <td id="txtBrahmsSalary"></td>
+                                </tr>
+                                <tr>
+                                    <td id="txtHaydnId"></td>
+                                    <td id="txtHaydnLastName"></td>
+                                    <td id="txtHaydnFirstName"></td>
+                                    <td id="txtHaydnSalary"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+            </div>
+        </div>
+        
+            
+        
+                
+                <!--JavaScript-->
+                <script>
+                
+                // Creating Product class
+                class Product {
+                    constructor(productId, productDescription, price, quantity, totalValue) {
+                        this.productId = productId;
+                        this.productDescription = productDescription;
+                        this.price = price;
+                        this.quantity = quantity;
+                        this.totalValue = totalValue;
+                    }
+                }
+
+                // Creating Services class
+                class Services {
+                    constructor(servicesId, servicesDescription, hourlyRate, min) {
+                        this.servicesId = servicesId;
+                        this.servicesDescription = servicesDescription;
+                        this.hourlyRate = hourlyRate.toFixed(2);
+                        this.min = min;
+                    }
+                }
+
+                // Creating Employee class
+                class Employee {
+                    constructor(employeeId, firstName, lastName, salary) {
+                        this.employeeId = employeeId;
+                        this.firstName = firstName;
+                        this.lastName = lastName;
+                        this.salary = salary;
+                    }
+                }
+
+                // Creating product object 1
+                let product1 = 
+                { 
+                    productId : "978111800818188",
+                    productDescription : "HTML and CSS: Design and Build Websites",
+                    price : "22.26",
+                    quantity: "10"
+                };
+
+                // Calculating Total Value for Product 1
+                let totalValue1 = product1.price * product1.quantity;
+               
+                // Creating product object 2
+                let product2 =
+                { 
+                    productId : "9781491952023",
+                    productDescription : "JavaScript: The Definitive Guide 7/E",
+                    price : "41.33",
+                    quantity: "7"
+                };
+                
+                // Calculating Total Value for Product 2
+                let totalValue2 = product2.price * product2.quantity;
+
+                // Creating product object 3
+                let product3 =
+                { 
+                    productId : "9781449331818",
+                    productDescription : "Learning JavaScript Design Patterns 1/E",
+                    price : "25.99",
+                    quantity: "3"
+                };
+
+                // Calculating Total Value for Product 3
+                let totalValue3 = product3.price * product3.quantity;
+
+                // Creating product object 4
+                let product4 =
+                { 
+                    productId : "9781617292422",
+                    productDescription : "Express in Action: Writing, building, and testing Node.js applications 1/E",
+                    price : "34.91",
+                    quantity: "3"
+                };
+
+                // Calculating Total Value for Product 4
+                let totalValue4 = product4.price * product4.quantity;
+
+                // Creating product object 5
+                let product5 =
+                { 
+                    productId : "9781491954461",
+                    productDescription : "MongoDB The Definitive Guide",
+                    price : "33.70",
+                    quantity: "8"
+                };
+                
+                // Calculating Total Value for Product 5
+                let totalValue5 = product5.price * product5.quantity;
+
+                // Creating services object 1
+                let service1 = 
+                { 
+                    servicesId : "100",
+                    servicesDescription : "Website Design",
+                    hourlyRate: "150.00",
+                    min: "25"
+                };
+                
+                // Creating services object 2
+                let service2 = 
+                { 
+                    servicesId : "101",
+                    servicesDescription : "DevOps Consulting",
+                    hourlyRate: "125.00",
+                    min: "50"
+                };
+                
+                // Creating services object 3
+                let service3 = 
+                { 
+                    servicesId : "102",
+                    servicesDescription : "Database Design",
+                    hourlyRate: "125.00",
+                    min: "15"
+                };
+
+
+                // Creating employee object 1
+                let emp1 = 
+                { 
+                    employeeId : "1007",
+                    lastName : "Beethoven",
+                    firstName: "Ludwig",
+                    salary: "13.99"
+                };
+
+                let emp2 = 
+                { 
+                    employeeId : "1008",
+                    lastName : "Bach",
+                    firstName: "Johann",
+                    salary: "22.30"
+                };
+
+                let emp3 = 
+                { 
+                    employeeId : "1009",
+                    lastName : "Mozart",
+                    firstName: "Wolfgang",
+                    salary: "19.50"
+                };
+
+                let emp4 = 
+                { 
+                    employeeId : "1010",
+                    lastName : "Brahms",
+                    firstName: "Johannes",
+                    salary: "12.00"
+                };
+
+                let emp5 = 
+                { 
+                    employeeId : "1011",
+                    lastName : "Haydn",
+                    firstName: "Joseph",
+                    salary: "32.50"
+                };
+                
+                // Creating products and services variables
+                let products = document.getElementById("favorite-products");
+                let services = document.getElementById("favorite-services");
+                let employees = document.getElementById("favorite-employees");
+
+                // Setting display to none
+                document.getElementById("favorite-products").style.display = "none";
+                document.getElementById("favorite-services").style.display = "none";
+                document.getElementById("favorite-employees").style.display = "none";
+                
+
+                // Wait for click of Display Listing button
+                document.getElementById("btnDisplayListing").addEventListener("click", myFavoritesList);
+                
+                function myFavoritesList() {
+                    let choice = document.getElementById("favoriteList").value;
+                    console.log(choice);
+                    
+                    // If products is selected
+                    if (choice == "products") {
+                        products.style.display = "block";
+                        services.style.display = "none";
+                        employees.style.display = "none";
+                        
+                    // If services is selected
+                    } else if (choice == "services") {
+                        products.style.display = "none";
+                        services.style.display = "block";
+                        employees.style.display = "none";
+
+                    // If employees is selected
+                    } else if (choice == "employees") {
+                        products.style.display = "none";
+                        services.style.display = "none";
+                        employees.style.display = "block";
+                        
+                    // If anything else was selected
+                    } else {
+                        products.style.display = "none";
+                        services.style.display = "none";
+                        employees.style.display = "none";
+                    }
+                    
+                    // Build table for products
+                    document.getElementById("txtHtmlCssId").innerHTML = product1.productId;
+                    document.getElementById("txtHtmlCssDescription").innerHTML = product1.productDescription;
+                    document.getElementById("txtHtmlCssPrice").innerHTML = product1.price;
+                    document.getElementById("txtHtmlCssQuantity").innerHTML = product1.quantity;
+                    document.getElementById("txtHtmlCssTotalValue").innerHTML = totalValue1.toFixed(2);
+                    document.getElementById("txtJavaScriptId").innerHTML = product2.productId;
+                    document.getElementById("txtJavaScriptDescription").innerHTML = product2.productDescription;
+                    document.getElementById("txtJavaScriptPrice").innerHTML = product2.price;
+                    document.getElementById("txtJavaScriptQuantity").innerHTML = product2.quantity;
+                    document.getElementById("txtJavaScriptTotalValue").innerHTML = totalValue2.toFixed(2);
+                    document.getElementById("txtLearningId").innerHTML = product3.productId;
+                    document.getElementById("txtLearningDescription").innerHTML = product3.productDescription;
+                    document.getElementById("txtLearningPrice").innerHTML = product3.price;
+                    document.getElementById("txtLearningQuantity").innerHTML = product3.quantity;
+                    document.getElementById("txtLearningTotalValue").innerHTML = totalValue3.toFixed(2);
+                    document.getElementById("txtExpressId").innerHTML = product4.productId;
+                    document.getElementById("txtExpressDescription").innerHTML = product4.productDescription;
+                    document.getElementById("txtExpressPrice").innerHTML = product4.price;
+                    document.getElementById("txtExpressQuantity").innerHTML = product4.quantity;
+                    document.getElementById("txtExpressTotalValue").innerHTML = totalValue4.toFixed(2);
+                    document.getElementById("txtMongoId").innerHTML = product5.productId;
+                    document.getElementById("txtMongoDescription").innerHTML = product5.productDescription;
+                    document.getElementById("txtMongoPrice").innerHTML = product5.price;
+                    document.getElementById("txtMongoQuantity").innerHTML = product5.quantity;
+                    document.getElementById("txtMongoTotalValue").innerHTML = totalValue5.toFixed(2);
+
+                    // Build table for Services
+                    document.getElementById("txtWebsiteDesignId").innerHTML = service1.servicesId;
+                    document.getElementById("txtWebsiteDesignDescription").innerHTML = service1.servicesDescription;
+                    document.getElementById("txtWebsiteDesignHourlyRate").innerHTML = service1.hourlyRate;
+                    document.getElementById("txtWebsiteDesignMinBillableHours").innerHTML = service1.min;
+                    document.getElementById("txtDevOpsConsultId").innerHTML = service2.servicesId;
+                    document.getElementById("txtDevOpsConsultDescription").innerHTML = service2.servicesDescription;
+                    document.getElementById("txtDevOpsConsultHourlyRate").innerHTML = service2.hourlyRate;
+                    document.getElementById("txtDevOpsConsultMinBillableHours").innerHTML = service2.min;
+                    document.getElementById("txtDatabaseDesignId").innerHTML = service3.servicesId;
+                    document.getElementById("txtDatabaseDesignDescription").innerHTML = service3.servicesDescription;
+                    document.getElementById("txtDatabaseDesignHourlyRate").innerHTML = service3.hourlyRate;
+                    document.getElementById("txtDatabaseDesignMinBillableHours").innerHTML = service3.min;
+
+                    // Build table for Employees
+                    document.getElementById("txtBeethovenId").innerHTML = emp1.employeeId;
+                    document.getElementById("txtBeethovenLastName").innerHTML = emp1.lastName;
+                    document.getElementById("txtBeethovenFirstName").innerHTML = emp1.firstName;
+                    document.getElementById("txtBeethovenSalary").innerHTML = emp1.salary;
+                    document.getElementById("txtBachId").innerHTML = emp2.employeeId;
+                    document.getElementById("txtBachLastName").innerHTML = emp2.lastName;
+                    document.getElementById("txtBachFirstName").innerHTML = emp2.firstName;
+                    document.getElementById("txtBachSalary").innerHTML = emp2.salary; 
+                    document.getElementById("txtMozartId").innerHTML = emp3.employeeId;
+                    document.getElementById("txtMozartLastName").innerHTML = emp3.lastName;
+                    document.getElementById("txtMozartFirstName").innerHTML = emp3.firstName;
+                    document.getElementById("txtMozartSalary").innerHTML = emp3.salary;
+                    document.getElementById("txtBrahmsId").innerHTML = emp4.employeeId;
+                    document.getElementById("txtBrahmsLastName").innerHTML = emp4.lastName;
+                    document.getElementById("txtBrahmsFirstName").innerHTML = emp4.firstName;
+                    document.getElementById("txtBrahmsSalary").innerHTML = emp4.salary;                    
+                    document.getElementById("txtHaydnId").innerHTML = emp5.employeeId;
+                    document.getElementById("txtHaydnLastName").innerHTML = emp5.lastName;
+                    document.getElementById("txtHaydnFirstName").innerHTML = emp5.firstName;
+                    document.getElementById("txtHaydnSalary").innerHTML = emp5.salary;
+
+
+
+
+                }
+
+        </script>
+
+    </div>
+
+</body>
+</html>
