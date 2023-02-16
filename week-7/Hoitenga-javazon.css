@@ -1,7 +1,6 @@
 /** Center and change font size of results */
 .results {
     text-align: left;
-    font-size: 28px;
 }
 
 #favorite-products-table {
