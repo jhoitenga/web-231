@@ -2,7 +2,7 @@
 ======================================
 ; Title: Assignment 8.2 - Alphabet Game
 ; Author: Professor Kumar
-; Date: February 24th, 2023
+; Date: February 23rd, 2023
 ; Modified By: Jennifer Hoitenga
 ; Description: Experimenting with JavaScript classes by creating an application called Alphabet Game.
 ; Sources Used: 
@@ -123,8 +123,8 @@
                     alphabetOutput += alphabet[x] + ", ";
                 }
                 
-                // Displaying the alphabet listing with commas
-                document.getElementById("txtLetters").innerHTML = alphabetOutput;
+                // Displaying the alphabet listing with commas. The last comma after z is removed.
+                document.getElementById("txtLetters").innerHTML = alphabetOutput.slice(0,76);
                 
                 // Wait for click of Display Listing button
                 document.getElementById("btnFindLetter").addEventListener("click", myPos);
