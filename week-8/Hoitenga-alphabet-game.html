@@ -1,0 +1,163 @@
+<!-- 
+======================================
+; Title: Assignment 8.2 - Alphabet Game
+; Author: Professor Kumar
+; Date: February 24th, 2023
+; Modified By: Jennifer Hoitenga
+; Description: Experimenting with JavaScript classes by creating an application called Alphabet Game.
+; Sources Used: 
+; Web 231 HTML, CSS, and JavaScript Requirements Word Document
+; W3Schools JavaScript Arrays: https://www.w3schools.com/js/js_arrays.asp
+; W3Schools For In Loops: https://www.w3schools.com/jsref/jsref_forin.asp
+; W3Schools JavaScript Undefined: https://www.w3schools.com/jsref/jsref_undefined.asp
+;=====================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="Hoitenga-alphabet-game.css">
+    <link rel="stylesheet" type="text/css" href="../global.css">
+    
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="app-header">Welcome to the Alphabet Game!</h1>
+
+        <div id="form-example">
+            <div class="card">
+                <div class="card-title">Alphabet Number Form</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="txtPosition">Alphabet Letter Position:</label>
+                            <input type="text" id="txtPosition" name="txtPosition" class="input">
+                        </div>
+                        <div class="form-field">
+                        <button type="submit" class="btn btn-primary full-width" id="btnFindLetter">Find Letter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <br>
+                <!--Anchor-->
+                <a href="../index.html" class="return-home">Return</a>
+            </div>
+        </div>
+        
+        <div id="form-results-example">
+            <div class="card">
+
+                <!--Letters Card-->
+                <div class="card-title">
+                    <div>Letters in the Alphabet</div>
+                    <div class="card-content">
+                        <div id="txtLetters" class="results">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<br>
+        <div class="card">
+
+            <!--Results Card-->
+            <div class="card-title">
+                <div>Results</div>
+                <div class="card-content">
+                    <div id="txtResults" class="results">
+                </div>
+            </div>
+        </div>
+    </div>
+                    
+                <!--JavaScript-->
+                <script>
+                
+                // Creating alphabet array
+                let alphabet = [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G",
+                    "H",
+                    "I",
+                    "J",
+                    "K",
+                    "L",
+                    "M",
+                    "N",
+                    "O",
+                    "P",
+                    "Q",
+                    "R",
+                    "S",
+                    "T",
+                    "U",
+                    "V",
+                    "W",
+                    "X",
+                    "Y",
+                    "Z"
+                ];
+
+
+                // Creating "for/in" loop to display alphabet listing with commas
+                let alphabetOutput = "";
+                for (let x in alphabet) {
+                    alphabetOutput += alphabet[x] + ", ";
+                }
+                
+                // Displaying the alphabet listing with commas
+                document.getElementById("txtLetters").innerHTML = alphabetOutput;
+                
+                // Wait for click of Display Listing button
+                document.getElementById("btnFindLetter").addEventListener("click", myPos);
+                
+                function myPos() {
+                    let pos = document.getElementById("txtPosition").value;
+                    console.log(pos);
+                 
+                    // Creating "for loop" to find letter in array that matches number entered
+                    for (let pos in alphabetOutput) {
+                        console.log(alphabetOutput[pos]);
+                    }
+
+                    // Creating "if/else" to display correct letter that corresponds to number entered
+                    let letter = alphabet[pos-1];
+
+                    // Display message if letter is undefined
+                    if ( letter == undefined ) {
+                        document.getElementById("txtResults").innerHTML = "There are not " + pos + " letters in the alphabet.";
+                    } else {
+                        document.getElementById("txtResults").innerHTML = letter + " is at position " + pos + " in the alphabet.";
+                    }
+            }
+                
+
+
+
+                
+
+        </script>
+
+    </div>
+        </div>
+
+</body>
+</html>
