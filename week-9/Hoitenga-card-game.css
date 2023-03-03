@@ -1,0 +1,21 @@
+/** Center and change font size of results */
+.results {
+    text-align: center;
+    font-size: 28px;
+    color: black;
+}
+
+.player-card {
+    text-align: center;
+    display: grid;
+    columns: 4;
+    padding: 10px;
+    grid-gap: 10px;
+}
+
+
+
+
+
+
+
